@@ -1,0 +1,94 @@
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import useGlobalReducer from "../hooks/useGlobalReducer";
+import "../index.css";
+import { useState } from "react";
+
+
+export const Login = () => {
+  const { dispatch } = useGlobalReducer();
+  const navigate = useNavigate();
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // const email = event.target.emailInput.value;
+    const password = event.target.passwordInput.value;
+
+    try {
+      const response = await fetch(
+        import.meta.env.VITE_BACKEND_URL + "/api/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          // body: JSON.stringify({ email, password }),
+          // body: JSON.stringify({ identifier: emailOrUsername, password: password }),
+          body: JSON.stringify({ identifier, password })
+
+        }
+      );
+
+      console.log("Login response status:", response.status);
+
+      if (!response.ok) {
+        const error = await response.json();
+        console.error("Login failed:", error);
+        setErrorMessage(error.msg || "Login failed. Please check your credentials.");
+        return;
+      }
+
+      const data = await response.json();
+      console.log("Login success:", data);
+
+      localStorage.setItem("user", JSON.stringify(data.user));
+      localStorage.setItem("access_token", data.access_token);
+
+      dispatch({ type: "LOGIN_SUCCESS", payload: data.user });
+      navigate("/profile");
+    } catch (err) {
+      console.error("Login error:", err);
+      setErrorMessage("An unexpected error occurred: " + err.message);
+    }
+  };
+
+  return (
+    <div className="authDiv">
+      <h2>Login</h2>
+      {errorMessage && (
+        <div className="alert alert-danger" role="alert">
+          {errorMessage}
+        </div>
+      )}
+      <form onSubmit={handleSubmit} className="login-form">
+
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Email or Username"
+          value={identifier}
+          onChange={(e) => setIdentifier(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          name="passwordInput"
+          placeholder="Enter password"
+          className="form-control mb-2"
+          required
+        />
+        <button className="btn btn-dark mt-2" type="submit">
+          Log In
+        </button>
+        <p className="text-center mt-3">
+          <Link to="/forgot-password">Forgot your password or username?</Link>
+        </p>
+
+      </form>
+    </div>
+  );
+};

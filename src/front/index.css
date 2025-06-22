@@ -1,0 +1,576 @@
+/*-----------------GENERAL STYLES-----------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*-----------------IMAGE STYLES-----------------*/
+.feature-img {
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.service-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/*-----------------BUTTON & CARD STYLES-----------------*/
+.btn {
+  border-radius: 0 !important;
+}
+
+.hover-float {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-float:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.card {
+  position: relative;
+  z-index: 10;
+  background-color: white;
+}
+
+.card a {
+  color: black !important;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.cta-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.award-hover:hover {
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+/*-----------------NAVBAR STYLES-----------------*/
+.navbar {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.navbar .btn-primary {
+  border-radius: 0;
+  font-weight: bold;
+  padding: 0.5rem 1.25rem;
+}
+
+.navbar-wrapper {
+  position: relative;
+}
+
+.hero-section {
+  padding-top: 90px; /* adjust depending on navbar height */
+}
+
+/* Navbar Profile Dropdown */
+.navbar .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+  background-color: transparent;
+  border: none;
+}
+
+.navbar .dropdown-toggle:hover,
+.navbar .dropdown-toggle:focus {
+  color: #555;
+  background-color: #f0f0f0;
+}
+
+.navbar .dropdown-menu {
+  margin-top: 0.5rem;
+  right: 0;
+  border-radius: 0;
+  border: 1px solid #ddd;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.navbar .profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.navbar .btn-light {
+  color: #333;
+  background-color: #fff;
+  border: none;
+}
+
+.navbar .btn-light:hover,
+.navbar .btn-light:focus {
+  background-color: #f0f0f0;
+}
+
+/*-----------------SEARCH BAR STYLES-----------------*/
+.search-bar-container {
+  width: 100%;
+  max-width: 720px;
+  padding: 0 1rem;
+}
+
+.search-bar {
+  display: flex;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  background: white;
+  height: 48px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: none;
+  height: 100%;
+  outline: none;
+}
+
+.divider {
+  width: 1px;
+  background-color: #ddd;
+  height: 60%;
+  align-self: center;
+}
+
+.search-btn {
+  background-color: #000;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price-option:hover {
+  color: darkgreen;
+  text-decoration: none;
+  background-color: #f1f1f1;
+}
+
+/*-----------------MODAL STYLES-----------------*/
+.modal {
+  z-index: 1050;
+}
+
+.modal-backdrop {
+  z-index: 1040;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.signup-modal .modal-dialog {
+  max-width: 850px;
+}
+
+.signup-modal .modal-content-wrapper {
+  background-color: white;
+  padding: 32px 24px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/*-----------------AUTH STYLES-----------------*/
+.authDiv {
+  max-width: 400px;
+  margin: 180px auto 200px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.authDivSign {
+  max-width: 400px;
+  margin: 150px auto 80px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.authDiv h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.login-form input,
+.signup-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 0.5rem 0;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+}
+
+.signup-form .btn,
+.login-form .btn {
+  width: 100%;
+}
+
+.alert-danger,
+.alert-success {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/*-----------------RESTAURANT SLIDER STYLES-----------------*/
+.restaurant-slider {
+  border: none !important;
+}
+
+.restaurant-slider .slick-slide {
+  height: 480px;
+  margin: 0;
+  padding: 0;
+}
+
+.restaurant-slider .slick-track {
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-slider .slick-dots {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+.restaurant-slider .slick-dots li button:before {
+  font-size: 8px;
+  color: white;
+  opacity: 0.75;
+}
+
+.restaurant-slider .slick-dots li.slick-active button:before {
+  color: white;
+  opacity: 1;
+}
+
+/*-----------------SEARCH TO RESULTS ANIMATION-----------------*/
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-section {
+  position: relative;
+  z-index: 10;
+  height: calc(100vh - 60px);
+  max-height: calc(100vh - 60px);
+  overflow: hidden;
+  background: white;
+}
+
+.search-section.searched {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  transition: height 1.2s ease, opacity 0.8s ease, visibility 0s 1.2s;
+}
+
+body.search-active {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+}
+
+.results-container,
+.results-container.show {
+  position: relative;
+  z-index: 5;
+  background-color: transparent;
+}
+
+/*-----------------FILTER SECTION STYLES-----------------*/
+.filter-section {
+  background-color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 500;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px;
+  pointer-events: auto;
+}
+
+.results-section {
+  position: relative;
+  z-index: 500;
+  background-color: transparent;
+  pointer-events: auto;
+}
+
+/*-----------------PAGE WRAPPER STYLES-----------------*/
+.page-wrapper {
+  background-color: transparent;
+  position: relative;
+  z-index: 200;
+  pointer-events: auto;
+}
+
+/*-----------------EMOJI RAIN STYLES-----------------*/
+.emoji-rain-background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 3000; /* On top of all UI except modals */
+  pointer-events: none; /* The wrapper doesn’t block anything */
+  overflow: visible; /* Allow emojis to fall freely */
+}
+
+.emoji-rain-background .emoji {
+  position: absolute;
+  pointer-events: auto; /* Emojis are clickable */
+  z-index: 1;
+  font-size: 2rem;
+  animation: fall linear 10s forwards;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+
+.emoji:hover {
+  transform: scale(1.2);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/*-----------------EMOJI PARTICLES-----------------*/
+.emoji-particle {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1002;
+  animation: crumb-blast 1s ease-out forwards;
+}
+
+@keyframes crumb-blast {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(0.2);
+  }
+}
+
+/*-----------------BITE COUNTER STYLES-----------------*/
+.floating-bite-container {
+  position: fixed;
+  top: 80px;
+  right: 40px;
+  z-index: 1050;
+  pointer-events: none;
+  padding: 10px;
+}
+
+.floating-bite-box {
+  pointer-events: auto;
+  background-color: #fff3cd;
+  padding: 1.5rem 2rem;
+  border: 2px solid #ffa502;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+  max-width: 280px;
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.bite-counter .bite-message {
+  font-size: 0.95rem;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.bite-counter .bite-milestone {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  color: #d63031;
+  animation: milestone-pop 0.5s ease;
+}
+
+.shake-on-update {
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes shakeHard {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(6deg);
+  }
+  40% {
+    transform: rotate(-6deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+}
+
+.bite-counter.shake-hard {
+  animation: shakeHard 0.6s ease;
+}
+
+.bite-count-text.slam {
+  animation: slam 0.4s ease;
+}
+
+@keyframes slam {
+  0% {
+    transform: scale(1.5) rotate(2deg);
+    color: #d63031;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    color: inherit;
+  }
+}
+
+@keyframes milestone-pop {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.3) rotate(-2deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(2deg);
+  }
+  75% {
+    transform: scale(1.3) rotate(-1deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/*-----------------COMBO POPUP STYLES-----------------*/
+.combo-popup {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ff4500;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  animation: combo-pop 1s ease-out forwards;
+  z-index: 9999;
+  pointer-events: none;
+  font-family: "Arial", sans-serif;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes combo-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(-50%, -80%) scale(1.2);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translate(-50%, -130%) scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150%) scale(1.8);
+  }
+}
+
+/*-----------------REVIEW POPUP STYLES-----------------*/
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
