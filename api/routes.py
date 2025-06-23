@@ -38,6 +38,16 @@ CORS(api, resources={r"/*": {"origins": [
 ]}}, supports_credentials=True)
 
 
+# Root route to handle base URL
+@api.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        "message": "BiteFinder API is running!",
+        "status": "success",
+        "version": "1.0"
+    })
+
+
 @api.route('/users', methods=['GET'])
 @jwt_required()
 def get_users():
