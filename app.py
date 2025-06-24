@@ -82,6 +82,14 @@ def serve_any_other_file(path):
     return response
 
 
+# Create database tables - THIS IS THE NEW FIX!
+with app.app_context():
+    try:
+        db.create_all()
+        print("✅ Database tables created successfully!")
+    except Exception as e:
+        print(f"❌ Error creating tables: {e}")
+
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3001))
