@@ -51,15 +51,21 @@ setup_commands(app)
 app.register_blueprint(api, url_prefix='/api')
 
 # Handle/serialize errors like a JSON object
-
-
 @app.errorhandler(APIException)
 def handle_invalid_usage(error):
     return jsonify(error.to_dict()), error.status_code
 
+# Add root route for API status - THIS IS THE KEY FIX!
+@app.route('/api')
+@app.route('/api/')
+def api_home():
+    return jsonify({
+        "message": "BiteFinder API is running!",
+        "status": "success",
+        "version": "1.0"
+    })
+
 # generate sitemap with all your endpoints
-
-
 @app.route('/')
 def sitemap():
     if ENV == "development":
@@ -67,8 +73,6 @@ def sitemap():
     return send_from_directory(static_file_dir, 'index.html')
 
 # any other endpoint will try to serve it like a static file
-
-
 @app.route('/<path:path>', methods=['GET'])
 def serve_any_other_file(path):
     if not os.path.isfile(os.path.join(static_file_dir, path)):
