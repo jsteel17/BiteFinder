@@ -270,16 +270,14 @@ const Restaurants = () => {
     setLoading(true);
     setError(null);
 
-    const isGitHubCodespace = window.location.hostname.includes('github.dev');
-    // Fixed the API URL - removed any potential double slashes
-    const API_URL = isGitHubCodespace
-      ? import.meta.env.VITE_BACKEND_URL || 'https://fluffy-space-palm-tree-v6ppwgqx95q42pvv7-3001.app.github.dev'
-      : 'http://localhost:3000';
-
     try {
+      // FIXED: Use the environment variable directly for deployed version
+      const API_URL = import.meta.env.VITE_BACKEND_URL;
+      console.log("Using API URL:", API_URL);
+
       // Ensure there are no double slashes in the URL
       const apiEndpoint = `${API_URL.replace(/\/+$/, '')}/api/search-restaurants`;
-      console.log("API endpoint:", apiEndpoint); // Debug the final URL
+      console.log("API endpoint:", apiEndpoint);
 
       const response = await fetch(apiEndpoint, {
         method: "POST",
@@ -823,6 +821,7 @@ const Restaurants = () => {
             </div>
           </section>
 
+          {/* More Filters Section - Only visible after search */}
           {/* More Filters Section - Only visible after search */}
           <section className="container py-2 filter-section">
             <div className="d-flex justify-content-center">
