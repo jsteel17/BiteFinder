@@ -17,7 +17,6 @@ export const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // const email = event.target.emailInput.value;
     const password = event.target.passwordInput.value;
 
     try {
